@@ -1,20 +1,34 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Cyber Security Education Presentation
 
-# Run and deploy your AI Studio app
+An immersive high-tech 3D isometric presentation built with React, Vite, and Tailwind CSS.
 
-This contains everything you need to run your app locally.
+## 🚀 Deployment to GitHub Pages
 
-View your app in AI Studio: https://ai.studio/apps/0cf56756-d4a5-45a7-9c48-4c6caa694c4c
+This repository is configured to deploy automatically to GitHub Pages using GitHub Actions.
 
-## Run Locally
+### Steps to Fix the Black Screen / Deploy correctly:
 
-**Prerequisites:**  Node.js
+1. **Enable GitHub Actions**:
+   - Go to your repository on GitHub.
+   - Click on **Settings** -> **Actions** -> **General**.
+   - Ensure "Allow all actions and reusable workflows" is selected.
+   - Under "Workflow permissions", ensure "Read and write permissions" is selected.
 
+2. **Configure GitHub Pages**:
+   - Go to **Settings** -> **Pages**.
+   - Under **Build and deployment** -> **Source**, select **GitHub Actions**.
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+3. **Trigger the Deployment**:
+   - Push a change to the `main` branch (e.g., adding a trivial change to this README).
+   - Go to the **Actions** tab to see your deployment progress.
+
+### Why was I seeing a black screen?
+Vite applications need to be "built" (compiled) before they can be hosted on a static site provider like GitHub Pages. Browsers cannot run `.tsx` files directly. The GitHub Action I've added (`.github/workflows/deploy.yml`) handles this building process for you automatically on every push.
+
+## Tech Stack
+- React 18
+- Vite
+- Tailwind CSS
+- Motion (Animations)
+- Lucide React (Icons)
+- Recharts (Data Visualization)
