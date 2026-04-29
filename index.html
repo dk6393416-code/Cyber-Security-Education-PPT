@@ -19,10 +19,11 @@
     </div>
     <script>
       setTimeout(() => {
-        if (!document.getElementById('root').hasChildNodes()) {
+        const root = document.getElementById('root');
+        if (!root || !root.hasChildNodes()) {
           document.getElementById('deployment-helper').style.display = 'block';
         }
-      }, 10000);
+      }, 5000);
     </script>
     <noscript>
       <div style="padding: 20px; text-align: center; font-family: sans-serif;">
@@ -30,7 +31,7 @@
         <p>This presentation requires JavaScript to render immersive 3D graphics and animations. Please enable it to continue.</p>
       </div>
     </noscript>
-    <script type="module" src="/src/main.tsx"></script>
+    <script type="module" src="./src/main.tsx"></script>
   </body>
 </html>
 
