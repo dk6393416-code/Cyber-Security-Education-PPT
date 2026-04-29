@@ -14,24 +14,13 @@
   </head>
   <body>
     <div id="root"></div>
-    <div id="deployment-helper" style="display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); color: #00F2FF; font-family: monospace; font-size: 10px; text-align: center; background: rgba(0,0,0,0.8); padding: 10px; border: 1px solid #00F2FF; border-radius: 4px; z-index: 1000;">
-      APPLICATION LOAD ERROR: If you see this, you likely need to enable <br/> "GitHub Actions" in your repository Settings -> Pages.
-    </div>
-    <script>
-      setTimeout(() => {
-        const root = document.getElementById('root');
-        if (!root || !root.hasChildNodes()) {
-          document.getElementById('deployment-helper').style.display = 'block';
-        }
-      }, 5000);
-    </script>
     <noscript>
-      <div style="padding: 20px; text-align: center; font-family: sans-serif;">
+      <div style="padding: 20px; text-align: center; font-family: sans-serif; color: white; background: #000; height: 100vh;">
         <h1>JavaScript Required</h1>
         <p>This presentation requires JavaScript to render immersive 3D graphics and animations. Please enable it to continue.</p>
       </div>
     </noscript>
-    <script type="module" src="./src/main.tsx"></script>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
 
