@@ -2,33 +2,35 @@
 
 An immersive high-tech 3D isometric presentation built with React, Vite, and Tailwind CSS.
 
-## 🚀 Deployment to GitHub Pages
+## 🚀 How to Fix the "Black Screen" on GitHub Pages
 
-This repository is configured to deploy automatically to GitHub Pages using GitHub Actions.
+The "black screen" occurs because browsers cannot run the raw source code (React `.tsx` files). You **must** let GitHub build the project into a website.
 
-### Steps to Fix the Black Screen / Deploy correctly:
+### Step 1: Push these changes to GitHub
+I have already added a "GitHub Action" (`.github/workflows/deploy.yml`) which automatically builds your site. Once you push your code, GitHub will start building it.
 
-1. **Enable GitHub Actions**:
-   - Go to your repository on GitHub.
-   - Click on **Settings** -> **Actions** -> **General**.
-   - Ensure "Allow all actions and reusable workflows" is selected.
-   - Under "Workflow permissions", ensure "Read and write permissions" is selected.
+### Step 2: Configure your GitHub Settings (CRITICAL)
+1.  Go to your repository on GitHub.com.
+2.  Click on **Settings** (top tab).
+3.  Click on **Actions** -> **General** (left sidebar).
+    -   Ensure **"Allow all actions and reusable workflows"** is selected.
+    -   Under "Workflow permissions", select **"Read and write permissions"** and click **Save**.
+4.  Click on **Pages** (left sidebar).
+    -   Under **Build and deployment** -> **Source**, select **"GitHub Actions"**.
+    -   *(Note: This is the modern way. If you don't see this, ensure the `gh-pages` branch exists after the action runs once, then select that branch).*
 
-2. **Configure GitHub Pages**:
-   - Go to **Settings** -> **Pages**.
-   - Under **Build and deployment** -> **Source**, select **GitHub Actions**.
+### Step 3: Verify the Build
+1.  Click on the **Actions** tab at the top of your GitHub repository.
+2.  You should see a workflow named "Deploy to GitHub Pages" running.
+3.  Wait for it to finish (it will turn green).
+4.  Once finished, the URL provided in the **Pages** settings will work perfectly.
 
-3. **Trigger the Deployment**:
-   - Push a change to the `main` branch (e.g., adding a trivial change to this README).
-   - Go to the **Actions** tab to see your deployment progress.
-
-### Why was I seeing a black screen?
-Vite applications need to be "built" (compiled) before they can be hosted on a static site provider like GitHub Pages. Browsers cannot run `.tsx` files directly. The GitHub Action I've added (`.github/workflows/deploy.yml`) handles this building process for you automatically on every push.
+## Why was it black?
+The black screen you saw was the background color I set in `index.html`. Because the JavaScript (React) wasn't "built" yet, the browser didn't know how to render the presentation slides, so it just stayed on the empty black background.
 
 ## Tech Stack
-- React 18
-- Vite
-- Tailwind CSS
+- React 18 & Vite
+- Tailwind CSS (v4)
 - Motion (Animations)
 - Lucide React (Icons)
 - Recharts (Data Visualization)
